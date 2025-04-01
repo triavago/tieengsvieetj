@@ -1,0 +1,27 @@
+# Add source files
+set(SOURCES
+    main.cpp
+    input/keyboard.cpp
+    input/hotkeys.cpp
+    engine/telex.cpp
+    # engine/vni.cpp
+    engine/rules.cpp
+    unicode/converter.cpp
+    unicode/charset.cpp
+    ui/tray_icon.cpp
+    ui/settings_dialog.cpp
+    utils/config.cpp
+    utils/logger.cpp
+)
+
+# Platform-specific sources
+if(WIN32)
+    list(APPEND SOURCES platform/win/platform_impl.cpp)
+elseif(APPLE)
+    list(APPEND SOURCES platform/mac/platform_impl.cpp)
+elseif(UNIX)
+    list(APPEND SOURCES platform/linux/platform_impl.cpp)
+endif()
+
+# Create executable
+add_executable(vietnamese-keyboard ${SOURCES})
