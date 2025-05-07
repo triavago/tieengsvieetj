@@ -34,7 +34,7 @@ bool Telex::isToneKey(char c) {
 }
 
 char Telex::applyTone(char tone, char base) {
-    const std::unordered_map<char, std::unordered_map<char, char>> toneMap =
+    static std::unordered_map<char, std::unordered_map<char, char>> toneMap =
     {
         {'a', {{'s', 'á'}, {'f', 'à'}, {'r', 'ả'}, {'x', 'ã'}, {'j', 'ạ'}}},
         {'e', {{'s', 'é'}, {'f', 'è'}, {'r', 'ẻ'}, {'x', 'ẽ'}, {'j', 'ẹ'}}},
